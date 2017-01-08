@@ -1,0 +1,16 @@
+Prepare index of lines in file contents ASCII symbols.
+After preparing user can find line in index.
+
+Testing:
+1) Unpack tests in 'test' directory (tar -xzvf tests.tar.gz), or prepare your test file.
+2) Build by command 'make'
+3) Run tests by command 'make test'
+
+Running:
+1) Run indexer by command './solution your_text_file.txt'
+2) Input any line from 'your_text_file.txt'
+
+Example:
+./solution tests/lord.txt
+
+and imput "The ring!" exclaimed Frodo. "Has he left me that? I wonder why. Still, it may be useful."
