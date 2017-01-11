@@ -29,7 +29,8 @@ static void read_input(Index_t* index, char* filename)
         }
         lines++;
     }
-    printf("\n  Find done! %zu lines ~ %.4f (s)\n\n", lines, utils_get_time_duration(start) / 1000);
+    double duration = utils_get_time_duration_ms(start);
+    printf("\n  Find done! %zu lines ~ %.4f (s), %.4f(ms) per line\n\n", lines, duration / 1000, (duration > 0 ? duration / lines : 0));
     if (line)
         free(line);
     fclose(fp);

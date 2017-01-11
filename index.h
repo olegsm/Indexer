@@ -34,7 +34,7 @@ typedef struct Index {
 } Index_t;
 
 timeval utils_get_time();
-double utils_get_time_duration(timeval start);
+double utils_get_time_duration_ms(timeval start);
 size_t utils_trim_line(char* line, size_t size);
 
 Index_t* index_create();

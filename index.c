@@ -17,7 +17,7 @@ timeval utils_get_time()
     return t;
 }
 
-double utils_get_time_duration(timeval start)
+double utils_get_time_duration_ms(timeval start)
 {
     timeval end;
     gettimeofday(&end, NULL);
@@ -202,14 +202,14 @@ Index_t* index_create_from_file(char* filename, bool dump)
         if (dump) {
             lines++;
             if (lines % dump_progress_lines == 0) {
-                printf("Indexing... %zu lines ~ %.4f (s). ", lines, (utils_get_time_duration(start) / 1000));
+                printf("Indexing... %zu lines ~ %.4f (s). ", lines, (utils_get_time_duration_ms(start) / 1000));
                 index_dump(index);
             }
         }
     }
 
     if (dump) {
-        printf("Indexing done! ~ %.4f (s).\n", (utils_get_time_duration(start) / 1000));
+        printf("Indexing done! ~ %.4f (s).\n", (utils_get_time_duration_ms(start) / 1000));
         index_dump(index);
     }
 

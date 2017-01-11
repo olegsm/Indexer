@@ -13,4 +13,4 @@ Running:
 Example:
 ./solution tests/lord.txt
 
-and imput "The ring!" exclaimed Frodo. "Has he left me that? I wonder why. Still, it may be useful."
+and input in cin >> "The ring!" exclaimed Frodo. "Has he left me that? I wonder why. Still, it may be useful."
