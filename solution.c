@@ -39,7 +39,7 @@ static void read_input(Index_t* index, char* filename)
 static void read_cin(Index_t* index)
 {
     size_t exit_length = strlen(s_exit_command);
-    size_t line_size = max(index->max_string_size + 1, exit_length);
+    size_t line_size = MAX(index->max_string_size + 1, exit_length);
 
     char* line = (char*) malloc(line_size);
     ssize_t size = 0;

@@ -8,21 +8,9 @@
 
 #include <sys/time.h>
 
-#define max(a,b) ({ a > b ? a : b; })
+#define MAX(a,b) ({ a > b ? a : b; })
 
 typedef struct timeval timeval;
-typedef uint8_t TrieKey;
-
-typedef struct BTNode {
-    struct TrieNode* data;
-    struct BTNode* left;
-    struct BTNode* right;
-} BTNode_t;
-
-typedef struct TrieNode {
-    TrieKey key;
-    BTNode_t* childs;
-} TrieNode_t;
 
 typedef struct Index {
     size_t max_string_size;
@@ -30,7 +18,7 @@ typedef struct Index {
     size_t nodes;
     size_t words;
 
-    TrieNode_t* head;
+    void* head;
 } Index_t;
 
 timeval utils_get_time();

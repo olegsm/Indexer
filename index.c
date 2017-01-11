@@ -4,6 +4,19 @@
 #include <stdlib.h>
 #include <string.h>
 
+typedef uint8_t TrieKey;
+
+typedef struct BTNode {
+    struct TrieNode* data;
+    struct BTNode* left;
+    struct BTNode* right;
+} BTNode_t;
+
+typedef struct TrieNode {
+    TrieKey key;
+    BTNode_t* childs;
+} TrieNode_t;
+
 static TrieKey FLAG_END = 128;
 
 static TrieNode_t* trie_node_create(TrieKey key, bool end);
@@ -224,7 +237,7 @@ void index_destroy(Index_t* index)
     if (!index)
         return;
 
-    TrieNode_t* head = index->head;
+    TrieNode_t* head = (TrieNode_t*) index->head;
     if (head) {
         trie_childs_destroy(head->childs);
         trie_childs_destroy_node(head->childs);
@@ -239,9 +252,9 @@ void index_insert(Index_t* index, const char* string, size_t size)
     if (!string)
         return;
 
-    index->max_string_size = max(index->max_string_size, size);
+    index->max_string_size = MAX(index->max_string_size, size);
 
-    TrieNode_t* node = index->head;
+    TrieNode_t* node = (TrieNode_t*) index->head;
     for (size_t i = 0; i < size; i++) {
         node = trie_insert(index, node, string[i], i == size - 1);
     }
@@ -254,7 +267,7 @@ bool index_find(Index_t* index, const char* string, size_t size)
 
     bool result = false;
     if (size <= index->max_string_size) {
-        TrieNode_t* node = index->head;
+        TrieNode_t* node = (TrieNode_t*) index->head;
         for (size_t i = 0; i < size; ++i) {
             node = trie_find(node, string[i]);
             if (!node)
