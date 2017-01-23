@@ -1,5 +1,6 @@
 Prepare index of lines in file contents ASCII symbols.
 After preparing user can find line in index.
+Index will be stored in simple not compressed trie.
 
 Testing:
 1) Unpack tests in 'test' directory (tar -xzvf tests.tar.gz), or prepare your test file.
